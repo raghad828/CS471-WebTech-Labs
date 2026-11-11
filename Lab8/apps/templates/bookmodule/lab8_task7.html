@@ -1,0 +1,11 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 8 Task 7 {% endblock title %}
+
+{% block content %}
+    <h1>Lab 8 Task 7</h1>
+    {% for obj in cities %}
+        City: {{obj.city}}, Number of students: {{obj.count}}
+        <hr>
+    {% endfor %}
+{% endblock content %}
