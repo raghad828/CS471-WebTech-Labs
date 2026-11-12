@@ -1,0 +1,11 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 9 Task 4 {% endblock title %}
+
+{% block content %}
+    <h1>Lab 9 Task 4</h1>
+    {% for obj in publishers %}
+        Publisher: {{obj.name}}, Average price: {{obj.average}}, Minimum price: {{obj.minimum}}, Maximum price: {{obj.maximum}}
+        <hr>
+    {% endfor %}
+{% endblock content %}
