@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Book, Address, Publisher, Author
+from .models import Book, Address
+from apps.usermodule.models import Publisher, Book as Lab9Book
 from .forms import BookForm
 from django.db.models import Q, Count, Sum, Avg, Max, Min
 
@@ -109,8 +110,8 @@ def lab8_task7(request):
 
 
 def lab9_task1(request):
-    total=Book.objects.aggregate(total=Sum('quantity'))['total']
-    mybooks=Book.objects.all()
+    total=Lab9Book.objects.aggregate(total=Sum('quantity'))['total']
+    mybooks=Lab9Book.objects.all()
     for book in mybooks:
         book.availability = book.quantity / total * 100
     return render(request, 'bookmodule/lab9_task1.html', {'books':mybooks})
@@ -149,36 +150,25 @@ def lab10_part1_listbooks(request):
 def lab10_part1_addbook(request):
     if request.method == 'POST':
         title = request.POST.get('title')
+        author = request.POST.get('author')
         price = request.POST.get('price')
-        quantity = request.POST.get('quantity')
-        pubdate = request.POST.get('pubdate')
-        rating = request.POST.get('rating')
-        publisher = Publisher.objects.get(id = request.POST.get('publisher'))
-        obj = Book(title=title, price=float(price), quantity=int(quantity), pubdate=pubdate, rating=int(rating), publisher=publisher)
+        edition = request.POST.get('edition')
+        obj = Book(title=title, author=author, price=float(price), edition=int(edition))
         obj.save()
-        obj.authors.set(request.POST.getlist('authors'))
         return redirect('books.lab10_part1_listbooks')
-    publishers = Publisher.objects.all()
-    authors = Author.objects.all()
-    return render(request, 'bookmodule/lab10_part1_addbook.html', {'publishers':publishers, 'authors':authors})
+    return render(request, 'bookmodule/lab10_part1_addbook.html')
 
 
 def lab10_part1_editbook(request, id):
     obj = Book.objects.get(id = id)
     if request.method == 'POST':
         obj.title = request.POST.get('title')
+        obj.author = request.POST.get('author')
         obj.price = float(request.POST.get('price'))
-        obj.quantity = int(request.POST.get('quantity'))
-        obj.pubdate = request.POST.get('pubdate')
-        obj.rating = int(request.POST.get('rating'))
-        obj.publisher = Publisher.objects.get(id = request.POST.get('publisher'))
+        obj.edition = int(request.POST.get('edition'))
         obj.save()
-        obj.authors.set(request.POST.getlist('authors'))
         return redirect('books.lab10_part1_listbooks')
-    publishers = Publisher.objects.all()
-    authors = Author.objects.all()
-    book_authors = obj.authors.all()
-    return render(request, 'bookmodule/lab10_part1_editbook.html', {'book':obj, 'publishers':publishers, 'authors':authors, 'book_authors':book_authors})
+    return render(request, 'bookmodule/lab10_part1_editbook.html', {'book':obj})
 
 
 def lab10_part1_deletebook(request, id):

@@ -7,39 +7,19 @@
     <form method="post" action="">
         {% csrf_token %}
         <label>Title:</label>
-        <input type="text" name="title" maxlength="100" value="{{book.title}}" required/>
+        <input type="text" name="title" maxlength="50" value="{{book.title}}" required/>
+        <br/>
+
+        <label>Author:</label>
+        <input type="text" name="author" maxlength="50" value="{{book.author}}" required/>
         <br/>
 
         <label>Price:</label>
         <input type="number" name="price" step="0.01" value="{{book.price}}" required/>
         <br/>
 
-        <label>Quantity:</label>
-        <input type="number" name="quantity" value="{{book.quantity}}" required/>
-        <br/>
-
-        <label>Publication date:</label>
-        <input type="datetime-local" name="pubdate" value="{{book.pubdate|date:'Y-m-d\TH:i'}}" required/>
-        <br/>
-
-        <label>Rating:</label>
-        <input type="number" name="rating" min="1" max="5" value="{{book.rating}}" required/>
-        <br/>
-
-        <label>Publisher:</label>
-        <select name="publisher" required>
-            {% for p in publishers %}
-                <option value="{{p.id}}" {% if p.id == book.publisher_id %}selected{% endif %}>{{p.name}}</option>
-            {% endfor %}
-        </select>
-        <br/>
-
-        <label>Authors:</label>
-        <select name="authors" multiple required>
-            {% for a in authors %}
-                <option value="{{a.id}}" {% if a in book_authors %}selected{% endif %}>{{a.name}}</option>
-            {% endfor %}
-        </select>
+        <label>Edition:</label>
+        <input type="number" name="edition" value="{{book.edition}}" required/>
         <br/>
 
         <button type="submit">Update</button>

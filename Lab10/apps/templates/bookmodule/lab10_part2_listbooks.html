@@ -7,7 +7,7 @@
     <a href="/books/lab9_part2/addbook">Add a new book</a>
     <hr>
     {% for obj in books %}
-        ID: {{obj.id}}, Title: {{obj.title}}, Price: {{obj.price}}, Quantity: {{obj.quantity}}
+                ID: {{obj.id}}, Title: {{obj.title}}, Author: {{obj.author}}, Price: {{obj.price}}, Edition: {{obj.edition}}
         <a href="/books/lab9_part2/editbook/{{obj.id}}">Edit</a>
         <a href="/books/lab9_part2/deletebook/{{obj.id}}">Delete</a>
         <hr>

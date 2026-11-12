@@ -7,39 +7,19 @@
     <form method="post" action="">
         {% csrf_token %}
         <label>Title:</label>
-        <input type="text" name="title" maxlength="100" required/>
+        <input type="text" name="title" maxlength="50" required/>
+        <br/>
+
+        <label>Author:</label>
+        <input type="text" name="author" maxlength="50" required/>
         <br/>
 
         <label>Price:</label>
         <input type="number" name="price" step="0.01" required/>
         <br/>
 
-        <label>Quantity:</label>
-        <input type="number" name="quantity" required/>
-        <br/>
-
-        <label>Publication date:</label>
-        <input type="datetime-local" name="pubdate" required/>
-        <br/>
-
-        <label>Rating:</label>
-        <input type="number" name="rating" min="1" max="5" required/>
-        <br/>
-
-        <label>Publisher:</label>
-        <select name="publisher" required>
-            {% for p in publishers %}
-                <option value="{{p.id}}">{{p.name}}</option>
-            {% endfor %}
-        </select>
-        <br/>
-
-        <label>Authors:</label>
-        <select name="authors" multiple required>
-            {% for a in authors %}
-                <option value="{{a.id}}">{{a.name}}</option>
-            {% endfor %}
-        </select>
+        <label>Edition:</label>
+        <input type="number" name="edition" required/>
         <br/>
 
         <button type="submit">Add</button>
