@@ -1,0 +1,12 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 10 Part 2 - Add Book {% endblock title %}
+
+{% block content %}
+    <h1>Lab 10 Part 2 - Add Book</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+{% endblock content %}

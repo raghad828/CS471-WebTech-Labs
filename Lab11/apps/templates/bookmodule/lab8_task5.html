@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 8 Task 5 {% endblock title %}
+
+{% block content %}
+    <h1>Lab 8 Task 5</h1>
+    Number of books: {{stats.count}}
+    <hr>
+    Total price of all books: {{stats.total}}
+    <hr>
+    Average price: {{stats.average}}
+    <hr>
+    Maximum price: {{stats.maximum}}
+    <hr>
+    Minimum price: {{stats.minimum}}
+    <hr>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 11 Task 2 - List Students {% endblock title %}
+
+{% block content %}
+    <h1>Lab 11 Task 2 - List Students</h1>
+    <a href="/books/lab11/task2/addstudent">Add a new student</a>
+    <hr>
+    {% for obj in students %}
+        ID: {{obj.id}}, Name: {{obj.name}}, Age: {{obj.age}}, Addresses:
+        {% for addr in obj.addresses.all %}
+            {{addr.city}}{% if not forloop.last %},{% endif %}
+        {% endfor %}
+        <a href="/books/lab11/task2/editstudent/{{obj.id}}">Edit</a>
+        <a href="/books/lab11/task2/deletestudent/{{obj.id}}">Delete</a>
+        <hr>
+    {% endfor %}
+{% endblock content %}

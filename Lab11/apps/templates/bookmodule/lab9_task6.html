@@ -1,0 +1,11 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 9 Task 6 {% endblock title %}
+
+{% block content %}
+    <h1>Lab 9 Task 6</h1>
+    {% for obj in publishers %}
+        Publisher: {{obj.name}}, Number of books: {{obj.count}}
+        <hr>
+    {% endfor %}
+{% endblock content %}

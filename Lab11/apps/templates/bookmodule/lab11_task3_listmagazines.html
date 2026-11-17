@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 11 Task 3 - List Magazines {% endblock title %}
+
+{% block content %}
+    <h1>Lab 11 Task 3 - List Magazines</h1>
+    <a href="/books/lab11/task3/addmagazine">Add a new magazine</a>
+    <hr>
+    {% for obj in magazines %}
+        ID: {{obj.id}}, Title: {{obj.title}}
+        <a href="/books/lab11/task3/editmagazine/{{obj.id}}">Edit</a>
+        <br>
+        <img src="{{obj.cover.url}}" alt="{{obj.title}}" width="150">
+        <hr>
+    {% endfor %}
+{% endblock content %}

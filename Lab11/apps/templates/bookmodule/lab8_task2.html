@@ -1,0 +1,11 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 8 Task 2 {% endblock title %}
+
+{% block content %}
+    <h1>Lab 8 Task 2</h1>
+    {% for obj in books %}
+        ID: {{obj.id}}, Title: {{obj.title}}, Author: {{obj.author}}, Price: {{obj.price}}, Edition: {{obj.edition}}
+        <hr>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,111 @@
+/* ===================== Lab 5 - main.css ===================== */
+
+
+/* ---------- Task 1: Links (/books/html5/links) ---------- */
+
+/* the link rows touch both sides of the window (like the lab picture) */
+.links-page {
+    margin: 8px 0;
+}
+
+/* class: shared by all three links */
+.link-box {
+    display: block;          /* each link takes a full-width row */
+    padding: 15px;
+    text-align: center;
+}
+
+/* id: the first link (opens in a new tab) */
+#new-tab-link {
+    background-color: #AAF3BA;
+    color: red;
+}
+
+#new-tab-link:hover {
+    background-color: #7FE39A;
+}
+
+#new-tab-link:active {
+    color: white;
+}
+
+/* class: the "same page/tab" links - a different style for each state
+   (keep this order: link -> visited -> hover -> active) */
+.same-tab:link {             /* not visited yet */
+    background-color: #555555;
+    color: white;
+}
+
+.same-tab:visited {          /* already visited */
+    background-color: #555555;
+    color: #FFD700;
+}
+
+.same-tab:hover {            /* mouse over the link */
+    background-color: black;
+    color: white;
+}
+
+.same-tab:active {           /* while the link is being clicked */
+    background-color: red;
+    color: white;
+}
+
+
+/* ---------- Task 2: Text formatting (/books/html5/text/formatting) ---------- */
+
+/* the h1 that contains "Example of Formatting tags" */
+#formatting-title {
+    color: green;
+    background-color: beige;
+    padding: 10px;
+}
+
+.formatting-examples p {
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+}
+
+
+/* ---------- Task 3: Listing (/books/html5/listing) ---------- */
+
+#listing-title {
+    color: white;
+    background-color: cadetblue;
+    padding: 10px;
+}
+
+
+/* ---------- Task 4: Tables (/books/html5/tables) ---------- */
+
+/* Table 1: every cell has its own border (separate borders) */
+#fruits-table {
+    margin: 0 auto 20px;     /* center the table */
+}
+
+#fruits-table caption {
+    font-weight: bold;
+}
+
+#fruits-table,
+#fruits-table th,
+#fruits-table td {
+    border: 1px solid black;
+}
+
+#fruits-table td {
+    text-align: center;
+}
+
+/* Table 2: borders collapsed into single lines */
+#camelid-table {
+    width: 75%;
+    margin: auto;            /* center the table */
+    border-collapse: collapse;
+}
+
+#camelid-table th,
+#camelid-table td {
+    border: 1px solid black;
+    text-align: center;
+}

@@ -1,0 +1,12 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 11 Task 3 - Add Magazine {% endblock title %}
+
+{% block content %}
+    <h1>Lab 11 Task 3 - Add Magazine</h1>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+{% endblock content %}

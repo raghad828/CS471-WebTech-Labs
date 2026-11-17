@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Lab 11 Task 1 - List Students {% endblock title %}
+
+{% block content %}
+    <h1>Lab 11 Task 1 - List Students</h1>
+    <a href="/books/lab11/task1/addstudent">Add a new student</a>
+    <hr>
+    {% for obj in students %}
+        ID: {{obj.id}}, Name: {{obj.name}}, Age: {{obj.age}}, Address: {{obj.address.city}}
+        <a href="/books/lab11/task1/editstudent/{{obj.id}}">Edit</a>
+        <a href="/books/lab11/task1/deletestudent/{{obj.id}}">Delete</a>
+        <hr>
+    {% endfor %}
+{% endblock content %}
